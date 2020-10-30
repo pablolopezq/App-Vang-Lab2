@@ -1,0 +1,22 @@
+<div *ngIf="selectedTask" class="card">
+    <div class="card-body">
+        <h3 class="card-title">
+        {{selectedTask.Name}}
+        </h3>
+        <div class="card-text">
+            <div class="form-group">
+                Descripcion: {{selectedTask.Descripcion}}
+            </div>
+            <div class="form-group">
+                Tiempo Estimado: {{selectedTask.Time}}
+            </div>
+            <div class="form-group">
+                Estado:  <select name="selectedTask.State" id="selectedTask.State"  value={{selectedTask.State}} (change)='onStateChange($event)'>
+                    <option value=0>Pendiente</option>
+                    <option value=1>En Proceso</option>
+                    <option value=2>Terminado</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>

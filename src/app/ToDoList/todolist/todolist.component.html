@@ -1,0 +1,34 @@
+<div class="card">
+    <div class="card-body">
+        <h2 class="card-title">
+            Task
+        </h2>
+        <div class="card-text">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <th>Nombre</th>
+                        <th>Tiempo Estimado</th>
+                        <th>Estado</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let task of tasks" (click)="onClick(task);">
+                            <td>
+                                {{task.Name}}
+                            </td>
+                            <td>
+                                {{task.Time}}
+                            </td>
+                            <td>
+                                {{(task.State === 0 ? "Pendiente" : (task.State === 1 ? "En Proceso" : "Terminado"))}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<app-tasks [selectedTask]="selectedTask" (stateChange)="onStateChange($event);" ></app-tasks>
